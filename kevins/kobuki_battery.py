@@ -20,6 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 import roslib
 import rospy
+from go_to_specific_point_on_map import GoToPose #for specific locations
 from kobuki_msgs.msg import SensorState
 
 class kobuki_battery():
@@ -40,6 +41,9 @@ class kobuki_battery():
 		rospy.loginfo("Kobuki's battery is now: " + str(round(float(data.battery) / float(self.kobuki_base_max_charge) * 100)) + "%")
 		if(int(data.charger) == 0) :
 			rospy.loginfo("Not charging at docking station")
+			if(data.battery<20): #go to the charging dock if battery value is less than 20
+				GoToPose(x1,y1)
+				print "lunchbot is now going home"
 		else:
 			rospy.loginfo("Charging at docking station")
 	

@@ -42,7 +42,7 @@ class kobuki_battery():
 		if(int(data.charger) == 0) :
 			rospy.loginfo("Not charging at docking station")
 			if(data.battery<20): #go to the charging dock if battery value is less than 20
-				GoToPose(x1,y1)
+				go_to.py CDS
 				print "lunchbot is now going home"
 		else:
 			rospy.loginfo("Charging at docking station")

@@ -41,7 +41,7 @@
 
 import roslib
 import rospy
-from go_to_specific_point_on_map import GoToPose #for specific locations
+from go_to.py
 from kobuki_msgs.msg import ButtonEvent
 
 class kobuki_button():
@@ -64,11 +64,11 @@ class kobuki_button():
 		state = "pressed"  
 	    if ( data.button == ButtonEvent.Button0 ) :
 		button = "B0"
-		GoToPose(x,y)
+		go_to.py CDS
 		#Go back to Dr. Barney Smith's office. Replace x and y arguments with first two pose coordinates seen on gmapping
 	    elif ( data.button == ButtonEvent.Button1 ) :
 		button = "B1"
-		GoToPose(x1,y1)
+		go_to.py office
 		#Go back to charging station. Replace x and y arguments with first two pose coordinates seen on gmapping
 	    else:
 		button = "B2"

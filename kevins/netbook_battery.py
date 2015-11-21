@@ -20,6 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 import roslib
 import rospy
+from go_to_specific_point_on_map import GoToPose #for specific locations
 from smart_battery_msgs.msg import SmartBatteryStatus #for netbook battery
 
 class netbook_battery():
@@ -41,6 +42,10 @@ class netbook_battery():
 			print("Currently charging")
 		else:
 			print("Not charging")
+			if int(data.percentage) < 30:
+				print("Going home")
+				GoToPose(x1, y1)
+			#Go back to charging station. Replace x and y arguments with first two pose coordinates seen on gmapping	
 		print("-----")
 		#Tip: try print(data) for a complete list of information available in the /laptop_charge/ thread
 
